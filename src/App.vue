@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Fakeflix</h1>
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/films-favoris">Favoris</router-link> |
@@ -10,12 +11,21 @@
 </template>
 
 <style>
+body{
+  background-color: black;
+  color: white;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+h1{
+  font-size: 50px;
+  font-weight: normal;
+  color: red;
 }
 
 nav {
@@ -24,10 +34,11 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: red;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: whitesmoke;
 }
 </style>

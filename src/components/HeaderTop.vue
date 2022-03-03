@@ -1,9 +1,9 @@
 <template>
   <div class="fond">
     <div class="main-container flex j-between">
-      <div class="flex j-between gap20">
-        <router-link to="/">Accueil</router-link> |
-        <router-link to="/films-favoris">Films favoris</router-link> |
+      <div id="banner" class="flex j-between gap20">
+        <router-link to="/">Accueil</router-link>
+        <router-link to="/films-favoris">Films favoris</router-link>
         <router-link to="/film-a-voir">Films à voir</router-link>
       </div>
       <div>
@@ -30,13 +30,24 @@ export default {
 .fond{
   height:60px;
   background-color: grey;
+  margin-bottom: 30px;
   padding-top: 20px;
 }
 .main-container {
   margin: 0 auto;
-  width: 1000px;
+  width: 70%;
   /* background-color: grey; */
 }
+#banner a{
+  color: black;
+  text-decoration: none;
+}
+#banner a.router-link-exact-active {
+  color: white;
+  text-decoration: underline;
+}
+
+
 .flex {
   display: flex;
 }
