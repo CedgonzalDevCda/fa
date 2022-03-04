@@ -11,7 +11,6 @@ export default new Vuex.Store({
     movieTrailer: '',
     searchResult: ['test']
   },
-  // plugins:[], 
   getters: {
 
   },
@@ -30,8 +29,10 @@ export default new Vuex.Store({
     },
     setMovieTrailer(state, movieTrailer) {
       state.movieTrailer = movieTrailer
-    }
-
+    },
+    // setTokenAccess(state, tokenAccess) {
+    //   state.tokenAccess = tokenAccess
+    // }
   },
   actions: {
     getSearchMovies: async function(context) {
@@ -62,6 +63,16 @@ export default new Vuex.Store({
       } catch (e) {
         console.error('ERREUR', e)
       }
-    }
+    },
+
+    // getTokenAccess: async function(context) {
+    //   try {
+    //     let response = await fetch(`https://api.themoviedb.org/3/authentication/token/new?api_key=da9f03e1518b17b8988cfcc00dfa3c2b`)
+    //     let tokenAccess = await response.json()
+    //     context.commit('setTokenAccess', tokenAccess)
+    //   } catch (e) {
+    //     console.error('ERREUR', e)
+    //   }
+    // }
   }
 })

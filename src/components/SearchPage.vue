@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: "MainPage",
+  name: "SearchPage",
   data: function () {
     return {
       // See https://developers.themoviedb.org/3/getting-started/images
@@ -59,10 +59,12 @@ export default {
 
 
 <style scoped>
+
 .main-page {
   margin: 0 auto;
   color: whitesmoke;
   width: 70%;
+
 }
 .flex {
   display: flex;

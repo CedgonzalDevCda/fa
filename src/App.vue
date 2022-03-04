@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <h1>Fakeflix</h1>
+    <div id="banner-home">
+      <h1>Fakeflix</h1>
+    </div>
     <!-- <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/films-favoris">Favoris</router-link> |
       <router-link to="/film-a-voir">Watchlist</router-link>
     </nav> -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <style>
-body{
+body {
   background-color: black;
   color: white;
 }
@@ -22,7 +24,11 @@ body{
   text-align: center;
   color: white;
 }
-h1{
+#banner-home{
+  height: 20vh;
+  background-image: url(@/Images/img_accueil_fakeflix.jpg);
+}
+h1 {
   font-size: 50px;
   font-weight: normal;
   color: red;

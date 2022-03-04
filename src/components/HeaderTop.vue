@@ -66,6 +66,10 @@ nav a {
   text-decoration: none;
 }
 
+nav a:hover{
+  text-decoration: underline;
+}
+
 nav a.router-link-exact-active {
   color: whitesmoke;
 }

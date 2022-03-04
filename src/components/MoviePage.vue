@@ -33,13 +33,11 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
   name: "MoviePage",
   data: function () {
     return {
-      // See https://developers.themoviedb.org/3/getting-started/images
       base_url: "https://image.tmdb.org/t/p/",
       file_size: "w200/",
       youtubeUrl: "https://www.youtube.com/embed/",
@@ -113,10 +111,6 @@ h2 {
 }
 .flex {
   display: flex;
-}
-.f-start {
-  display: flex;
-  justify-content: flex-start;
 }
 
 .j-around {
