@@ -3,20 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// Plugin hooper pour Carousel
-// const myPlugin = store => {
-//   // Called when store is initialized
-//   store.subscribe((mutation, state) => {
-//       // Called after every mutation
-//       // Mutation comes in the format `{ type, payload }`
-//   })
-// }
-
 export default new Vuex.Store({
   state: {
     movieId: '',
     movieResult: null,
     query: '',
+    movieTrailer: '',
     searchResult: ['test']
   },
   // plugins:[], 
@@ -35,7 +27,11 @@ export default new Vuex.Store({
     },
     setSearchResult(state, result) {
       state.searchResult = result
+    },
+    setMovieTrailer(state, movieTrailer) {
+      state.movieTrailer = movieTrailer
     }
+
   },
   actions: {
     getSearchMovies: async function(context) {
@@ -53,7 +49,16 @@ export default new Vuex.Store({
         let response = await fetch(`https://api.themoviedb.org/3/movie/${context.state.movieId}?api_key=da9f03e1518b17b8988cfcc00dfa3c2b&language=fr-FR`)
         let movieResult = await response.json()
         context.commit('setMovieResult', movieResult)
-
+        context.dispatch("getTrailerMovie");
+      } catch (e) {
+        console.error('ERREUR', e)
+      }
+    },
+    getTrailerMovie: async function(context) {
+      try {
+        let response = await fetch(`https://api.themoviedb.org/3/movie/${context.state.movieId}/videos?api_key=da9f03e1518b17b8988cfcc00dfa3c2b&language=fr-FR`)
+        let movieTrailer = await response.json()
+        context.commit('setMovieTrailer', movieTrailer)
       } catch (e) {
         console.error('ERREUR', e)
       }

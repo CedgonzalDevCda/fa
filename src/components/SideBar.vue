@@ -1,21 +1,24 @@
 <template>
-  <div>
-    <!-- <Carousel /> -->
+  <div class="side-bar">
+    <CarouselPopular />
   </div>
 </template>
 
 <script>
 
-// import Carousel from "@/components/Carousel.vue";
+import CarouselPopular from "@/components/CarouselPopular.vue";
 
 export default {
   name: "SideBar",
   components: {
-    // Carousel
+    CarouselPopular
   }
 };
 </script>
 
 
 <style scoped>
+.side-bar{
+  width: 30%;
+}
 </style>

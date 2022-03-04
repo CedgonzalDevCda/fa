@@ -12,6 +12,13 @@ const routes = [
   },
 
   {
+    path: '/login',
+    name: 'login',
+    movieId: '',
+    component: () => import( '../views/LoginView.vue')
+  },
+
+  {
     path: '/movie/:movieId',
     name: 'movie',
     movieId: '',

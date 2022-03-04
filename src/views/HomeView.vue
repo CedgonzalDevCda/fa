@@ -5,7 +5,6 @@
       <MainPage />
       <SideBar />
     </div>
-    <p>SideBar - Carousel - film à la une</p>    
   </div>
 </template>
 <script>

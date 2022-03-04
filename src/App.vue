@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <h1>Fakeflix</h1>
-    <nav>
+    <!-- <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/films-favoris">Favoris</router-link> |
       <router-link to="/film-a-voir">Watchlist</router-link>
-    </nav>
+    </nav> -->
     <router-view/>
   </div>
 </template>
@@ -20,7 +20,7 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
 }
 h1{
   font-size: 50px;

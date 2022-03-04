@@ -1,11 +1,12 @@
 <template>
   <div class="fond">
     <div class="main-container flex j-between">
-      <div id="banner" class="flex j-between gap20">
+      <nav id="banner" class="flex j-between gap20">
+        <router-link to="/login">Login</router-link>
         <router-link to="/">Accueil</router-link>
         <router-link to="/films-favoris">Films favoris</router-link>
         <router-link to="/film-a-voir">Films à voir</router-link>
-      </div>
+      </nav>
       <div>
         <SearchBar />
       </div>
@@ -38,15 +39,6 @@ export default {
   width: 70%;
   /* background-color: grey; */
 }
-#banner a{
-  color: black;
-  text-decoration: none;
-}
-#banner a.router-link-exact-active {
-  color: white;
-  text-decoration: underline;
-}
-
 
 .flex {
   display: flex;
@@ -61,4 +53,21 @@ export default {
 .gap20 {
   gap: 20px;
 }
+
+/**/
+
+  nav {
+    padding: 5px;
+  }
+
+nav a {
+  font-weight: bold;
+  color: red;
+  text-decoration: none;
+}
+
+nav a.router-link-exact-active {
+  color: whitesmoke;
+}
+
 </style>

@@ -1,15 +1,18 @@
 <template>
   <div class="main-container" v-if="movie !== null">
-    <div v-if="movie.video !== false">
-      <!-- bande-annonce du film:<br> -->
-      <!-- <iframe :src="this.youtubeUrl+movie.video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    <div v-show="trailerKey !== null">
+      <iframe :src="youtubeUrl + trailerKey " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <h2>{{ movie.title }}</h2>
     <p><span>Date de sortie:</span> {{ movie.release_date }}</p>
     <div class="excerpt"><span>Synopsis:</span> {{ movie.overview }}</div>
     <div class="flex j-around align-start">
-      <div>
-        <img :src="base_url + file_size + movie.poster_path" />
+      <div >
+        <img v-if="movie.poster_path !== null" :src="base_url + file_size + movie.poster_path" />
+        <img v-else
+        src="https://webboy.fr/wp-content/uploads/2022/03/image-non-disponible.png"
+          width="200px"
+          height="300px">
       </div>
       <div>
         <p>Information</p>
@@ -39,7 +42,8 @@ export default {
       // See https://developers.themoviedb.org/3/getting-started/images
       base_url: "https://image.tmdb.org/t/p/",
       file_size: "w200/",
-      // youtubeUrl: "https://www.youtube.com/embed/",
+      youtubeUrl: "https://www.youtube.com/embed/",
+
     };
   },
   created: function () {
@@ -50,6 +54,11 @@ export default {
     movie() {
       return this.$store.state.movieResult;
     },
+    trailerKey() {
+      if (this.$store.state.movieTrailer.results.length !== 0) {
+      return this.$store.state.movieTrailer.results[0].key;
+      } else return null
+    }
   },
   methods: {
     addToFavorite: function () {
@@ -57,7 +66,7 @@ export default {
     },
     addToMovieToSee: function () {
       console.log("Film ajouté à la liste des films à voir");
-    },
+    }
   },
 };
 </script>
@@ -75,10 +84,11 @@ h2 {
 }
 .excerpt {
   width: 65%;
-  margin: 0 auto;
+  margin-left: 150px;
+  margin-bottom: 50px;
 }
 
-.excerpt span{
+.excerpt span, p span{
   text-decoration: underline;
 }
 
@@ -91,6 +101,7 @@ h2 {
   color: white;
   cursor: pointer;
 }
+
 .boxlist:hover{
   background-color: rgb(4, 185, 4);
 }
