@@ -6,12 +6,12 @@
       v-for="movie of searchResult.results"
       :key="movie"
     >
-      <p class="movie-title">{{ movie.title }}</p>
       <router-link
         @click="searchSingleMovie()"
         :id="movie.id"
         :to="{ name: 'movie', params: { movieId: movie.id } }"
       >
+        <p class="movie-title">{{ movie.title }}</p>
         <p v-if="movie.poster_path == null">
           <img
             src="https://webboy.fr/wp-content/uploads/2022/03/image-non-disponible.png"
@@ -63,7 +63,7 @@ export default {
 .main-page {
   margin: 0 auto;
   color: whitesmoke;
-  width: 70%;
+  width: 60%;
 
 }
 .flex {
@@ -82,7 +82,13 @@ export default {
   width: 205px;
   height: 380px;
   border-radius: 5px;
-  background-color: rgb(33, 33, 33);
+}
+
+.movie-box a {
+  text-decoration: none;
+  list-style: none;
+  color: #f1f1f1;
+  text-shadow: 3px 3px 3px red;
 }
 
 .movie-title {

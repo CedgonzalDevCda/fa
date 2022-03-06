@@ -30,7 +30,8 @@ export default {
 <style scoped>
 .fond{
   height:60px;
-  background-color: grey;
+  background: grey;
+  background: linear-gradient(to bottom, #373737 85%, black);
   margin-bottom: 30px;
   padding-top: 20px;
 }

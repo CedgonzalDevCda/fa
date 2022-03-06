@@ -1,38 +1,19 @@
 <template>
   <hooper :settings="hooperSettings">
-    <!-- Manque ajout des films populaires -->
-    <!-- <slide v-for="(slide, indx) in slides" :key="indx" :index="indx">
-      {{ slide }}
-    </slide> -->
-    <slide >
-      <img
-        src="https://webboy.fr/wp-content/uploads/2022/03/image-non-disponible.png"
-        width="150px"
-        height="200px"
-      />
+    <slide v-for="movie of moviesPopular.results" :key="movie">
+      <router-link
+        @click="searchSingleMovie()"
+        :to="{ name: 'movie', params: { movieId: movie.id } }"
+      >
+        <div v-if="movie.poster_path == null">
+          <p>{{ movie.title }}</p>
+          />
+        </div>
+        <div v-else>
+          <img :src="base_url + file_size + movie.poster_path" height="300px" :title= movie.title />
+        </div>
+      </router-link>
     </slide>
-    <slide>
-      <img
-        src="https://webboy.fr/wp-content/uploads/2022/03/image-non-disponible.png"
-        width="150px"
-        height="200px"
-      />
-    </slide>
-    <slide>
-      <img
-        src="https://webboy.fr/wp-content/uploads/2022/03/image-non-disponible.png"
-        width="150px"
-        height="200px"
-      />
-    </slide>
-    <slide>
-      <img
-        src="https://webboy.fr/wp-content/uploads/2022/03/image-non-disponible.png"
-        width="150px"
-        height="200px"
-      />
-    </slide>
-    ...
   </hooper>
 </template>
 
@@ -59,6 +40,14 @@ export default {
         vertical: "true",
       },
     };
+  },
+  computed: {
+    moviesPopular() {
+      return this.$store.state.moviesPopular;
+    },
+  },
+  created: function () {
+    this.$store.dispatch("getCarouselPopular");
   },
 };
 </script>

@@ -9,7 +9,8 @@ export default new Vuex.Store({
     movieResult: null,
     query: '',
     movieTrailer: '',
-    searchResult: ['test']
+    moviesPopular: [''],
+    searchResult: ['']
   },
   getters: {
 
@@ -30,6 +31,10 @@ export default new Vuex.Store({
     setMovieTrailer(state, movieTrailer) {
       state.movieTrailer = movieTrailer
     },
+    setmoviesPopular(state, moviesPopular) {
+      state.moviesPopular = moviesPopular
+    }
+
     // setTokenAccess(state, tokenAccess) {
     //   state.tokenAccess = tokenAccess
     // }
@@ -64,7 +69,11 @@ export default new Vuex.Store({
         console.error('ERREUR', e)
       }
     },
-
+    getCarouselPopular: async function (context) {
+      let response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=da9f03e1518b17b8988cfcc00dfa3c2b&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`)
+      let moviesPopular = await response.json()
+      context.commit("setmoviesPopular", moviesPopular);
+    }
     // getTokenAccess: async function(context) {
     //   try {
     //     let response = await fetch(`https://api.themoviedb.org/3/authentication/token/new?api_key=da9f03e1518b17b8988cfcc00dfa3c2b`)

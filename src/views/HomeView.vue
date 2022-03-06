@@ -2,8 +2,8 @@
   <div class="home">
     <HeaderTop />
     <div>
-      <SearchPage />
       <SideBar /> 
+      <SearchPage />
     </div>
   </div>
 </template>

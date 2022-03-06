@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <div id="banner-home">
-      <h1>Fakeflix</h1>
+    <div id="banner-home" class="container">  
+      <h1><router-link to="/">Fakeflix</router-link></h1>
     </div>
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/films-favoris">Favoris</router-link> |
-      <router-link to="/film-a-voir">Watchlist</router-link>
-    </nav> -->
     <router-view />
+    <main>
+    </main>
+    <footer>
+      <span id="git">The Github of this project:</span> <a href="https://github.com/CedgonzalDevCda/fa">Click here</a></footer>
   </div>
 </template>
 
@@ -17,6 +16,12 @@ body {
   background-color: black;
   color: white;
 }
+body a{
+  text-decoration: none;
+  list-style: none;
+  color: red;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,14 +29,41 @@ body {
   text-align: center;
   color: white;
 }
-#banner-home{
-  height: 20vh;
-  background-image: url(@/Images/img_accueil_fakeflix.jpg);
+.container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
+
+#banner-home{
+  height: 30vh;
+}
+main{
+  height: 28vh;
+}
+footer{
+  margin-top: 40px;
+  height: 20vh;
+  font-size:20px;
+  background-image: url(@/Images/img_accueil_fakeflix.jpg);
+  box-shadow: inset 50px 50px 50px #000;
+  background-size: cover;
+}
+#git{
+  text-decoration: underline;
+}
+footer a{
+  text-decoration: none;
+  list-style: none;
+  color: red;
+}
+
 h1 {
   font-size: 50px;
   font-weight: normal;
   color: red;
+  text-shadow: 3px 3px 3px #373737;
+
 }
 
 nav {
