@@ -1,4 +1,4 @@
-# fakeflix
+# fakeflix with VueJs
 
 ## Project setup
 ```
